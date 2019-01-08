@@ -304,6 +304,12 @@ config CPU_INPUT_BOOST_MDSS_TIMEOUT
 	  Timeout in milliseconds to prevent general boosting on MDSS frame
 	  updates when interaction does not occur within this value.
 
+config INPUT_BOOST_DYNAMIC_STUNE_BOOST
+	int "Default dynamic schedtune boost value"
+	default "50"
+	help
+	  Default value for the dynamic schedtune boost value.
+
 endif
 
 comment "CPU frequency scaling drivers"

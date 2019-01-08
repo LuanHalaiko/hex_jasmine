@@ -32,7 +32,7 @@ module_param(input_boost_duration, short, 0644);
 #define MAX_BOOST		BIT(4)
 
 #ifdef CONFIG_DYNAMIC_STUNE_BOOST
-static int dynamic_stune_boost;
+static int dynamic_stune_boost = CONFIG_INPUT_BOOST_DYNAMIC_STUNE_BOOST;
 module_param(dynamic_stune_boost, uint, 0644);
 #endif /* CONFIG_DYNAMIC_STUNE_BOOST */
 
