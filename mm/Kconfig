@@ -774,13 +774,6 @@ config PROCESS_RECLAIM
 
 	 Any other vaule is ignored.
 
-config LAPTOP_MODE
-	bool "Enable laptop mode by default"
-	default y
-	help
-		This reduces the amount of memory write-outs to save battery on
-		many devices.
-
 config VM_DIRTY_RATIO
 	int "VM dirty ratio default value"
 	default 20
