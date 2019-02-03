@@ -416,14 +416,6 @@ config DST_CACHE
 	bool
 	default n
 
-config SYSCTL_NET_BUSY_READ
-	int "Enable busy read by default"
-	default 0
-
-config SYSCTL_NET_BUSY_POLL
-	int "Enable busy poll by default"
-	default 0
-
 config NETDEV_MAX_BACKLOG
 	int "Netdev max backlog default value"
 	default 1000
