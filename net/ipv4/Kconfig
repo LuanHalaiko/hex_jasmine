@@ -701,7 +701,3 @@ config TCP_MD5SIG
 	  on the Internet.
 
 	  If unsure, say N.
-
-config TCP_LOW_LATENCY
-	int "Enable low latency for TCP by default"
-	default 0
