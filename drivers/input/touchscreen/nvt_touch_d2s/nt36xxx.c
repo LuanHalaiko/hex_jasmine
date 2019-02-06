@@ -991,14 +991,15 @@ static void nvt_esd_check_func(struct work_struct *work)
 #endif /* #if NVT_TOUCH_ESD_PROTECT */
 
 #define POINT_DATA_LEN 65
+
 /*******************************************************
 Description:
-	Novatek touchscreen work function.
+	External interrupt service routine.
 
 return:
-	n.a.
+	irq execute status.
 *******************************************************/
-static void nvt_ts_work_func(struct work_struct *work)
+static irqreturn_t nvt_ts_irq_handler(int32_t irq, void *dev_id)
 {
 	int32_t ret = -1;
 	uint8_t point_data[POINT_DATA_LEN + 1] = {0};
@@ -1012,6 +1013,14 @@ static void nvt_ts_work_func(struct work_struct *work)
 	int32_t i = 0;
 	int32_t finger_cnt = 0;
 
+
+	disable_irq_nosync(ts->client->irq);
+
+#if WAKEUP_GESTURE
+	if (bTouchIsAwake == 0) {
+		wake_lock_timeout(&gestrue_wakelock, msecs_to_jiffies(5000));
+	}
+#endif	
 	mutex_lock(&ts->lock);
 
 	ret = CTP_I2C_READ(ts->client, I2C_FW_Address, point_data, POINT_DATA_LEN + 1);
@@ -1032,7 +1041,7 @@ static void nvt_ts_work_func(struct work_struct *work)
 		nvt_ts_wakeup_gesture_report(input_id, point_data);
 		enable_irq(ts->client->irq);
 		mutex_unlock(&ts->lock);
-		return;
+		return IRQ_HANDLED;
 	}
 #endif
 
@@ -1107,26 +1116,6 @@ XFER_ERROR:
 	enable_irq(ts->client->irq);
 
 	mutex_unlock(&ts->lock);
-}
-
-/*******************************************************
-Description:
-	External interrupt service routine.
-
-return:
-	irq execute status.
-*******************************************************/
-static irqreturn_t nvt_ts_irq_handler(int32_t irq, void *dev_id)
-{
-	disable_irq_nosync(ts->client->irq);
-
-#if WAKEUP_GESTURE
-	if (bTouchIsAwake == 0) {
-		wake_lock_timeout(&gestrue_wakelock, msecs_to_jiffies(5000));
-	}
-#endif
-
-	queue_work(nvt_wq, &ts->nvt_work);
 
 	return IRQ_HANDLED;
 }
@@ -1297,7 +1286,6 @@ static int32_t nvt_ts_probe(struct i2c_client *client, const struct i2c_device_i
 		ret = -ENOMEM;
 		goto err_create_nvt_wq_failed;
 	}
-	INIT_WORK(&ts->nvt_work, nvt_ts_work_func);
 
 
 
