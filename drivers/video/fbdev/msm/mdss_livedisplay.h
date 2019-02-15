@@ -20,7 +20,7 @@
 #include "mdss_dsi.h"
 #include "mdss_fb.h"
 
-#define MAX_PRESETS 10
+#define MAX_PRESETS 25
 
 struct mdss_livedisplay_ctx {
 	uint8_t cabc_ui_value;
