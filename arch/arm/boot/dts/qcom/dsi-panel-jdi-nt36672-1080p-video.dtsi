@@ -71,7 +71,7 @@
             05 01 00 00 0A 00 02 28 00
             05 01 00 00 00 00 02 10 00
         ];
-		cm,mdss-livedisplay-color-enhance-on = [
+		qcom,mdss-dsi-ce-on-command = [
             15 01 00 00 00 00 02 FF 22
             15 00 00 00 00 00 02 00 54
             15 00 00 00 00 00 02 01 54
@@ -227,7 +227,7 @@
             15 01 00 00 00 00 02 FF 10
             15 01 00 00 00 00 02 55 80
 		];
-		cm,mdss-livedisplay-color-enhance-off = [
+		qcom,mdss-dsi-ce-off-command = [
             15 01 00 00 00 00 02 FF 22
             15 00 00 00 00 00 02 00 54
             15 00 00 00 00 00 02 01 54
@@ -515,7 +515,7 @@
             15 01 00 00 00 00 02 FF 10
 			15 01 00 00 00 00 02 55 00
 		];
-		cm,mdss-livedisplay-cabc-cmd = [
+		qcom,mdss-dsi-cabc-on-command = [
             15 01 00 00 00 00 02 FF 23
             15 00 00 00 00 00 02 FB 01
             15 00 00 00 00 00 02 07 20
@@ -549,55 +549,55 @@
             15 01 00 00 00 00 02 FF 10
 			15 01 00 00 00 00 02 55 00
 		];
-		cm,mdss-livedisplay-preset-0 = [
+		qcom,mdss-dsi-gamma0-command = [
 		];
-		cm,mdss-livedisplay-preset-1 = [
+		qcom,mdss-dsi-gamma1-command = [
 		];
-		cm,mdss-livedisplay-preset-2 = [
+		qcom,mdss-dsi-gamma2-command = [
 		];
-		cm,mdss-livedisplay-preset-3 = [
+		qcom,mdss-dsi-gamma3-command = [
 		];
-		cm,mdss-livedisplay-preset-4 = [
+		qcom,mdss-dsi-gamma4-command = [
 		];
-		cm,mdss-livedisplay-preset-5 = [
+		qcom,mdss-dsi-gamma5-command = [
 		];
-		cm,mdss-livedisplay-preset-6 = [
+		qcom,mdss-dsi-gamma6-command = [
 		];
-		cm,mdss-livedisplay-preset-7 = [
+		qcom,mdss-dsi-gamma7-command = [
 		];
-		cm,mdss-livedisplay-preset-8 = [
+		qcom,mdss-dsi-gamma8-command = [
 		];
-		cm,mdss-livedisplay-preset-9 = [
+		qcom,mdss-dsi-gamma9-command = [
 		];
-		cm,mdss-livedisplay-preset-10 = [
+		qcom,mdss-dsi-gamma10-command = [
 		];
-		cm,mdss-livedisplay-preset-11 = [
+		qcom,mdss-dsi-gamma11-command = [
 		];
-		cm,mdss-livedisplay-preset-12 = [
+		qcom,mdss-dsi-gamma12-command = [
 		];
-		cm,mdss-livedisplay-preset-13 = [
+		qcom,mdss-dsi-gamma13-command = [
 		];
-		cm,mdss-livedisplay-preset-14 = [
+		qcom,mdss-dsi-gamma14-command = [
 		];
-		cm,mdss-livedisplay-preset-15 = [
+		qcom,mdss-dsi-gamma15-command = [
 		];
-		cm,mdss-livedisplay-preset-16 = [
+		qcom,mdss-dsi-gamma16-command = [
 		];
-		cm,mdss-livedisplay-preset-17 = [
+		qcom,mdss-dsi-gamma17-command = [
 		];
-		cm,mdss-livedisplay-preset-18 = [
+		qcom,mdss-dsi-gamma18-command = [
 		];
-		cm,mdss-livedisplay-preset-19 = [
+		qcom,mdss-dsi-gamma19-command = [
 		];
-		cm,mdss-livedisplay-preset-20 = [
+		qcom,mdss-dsi-gamma20-command = [
 		];
-		cm,mdss-livedisplay-preset-21 = [
+		qcom,mdss-dsi-gamma21-command = [
 		];
-		cm,mdss-livedisplay-preset-22 = [
+		qcom,mdss-dsi-gamma22-command = [
 		];
-		cm,mdss-livedisplay-preset-23 = [
+		qcom,mdss-dsi-gamma23-command = [
 		];
-		cm,mdss-livedisplay-preset-24 = [
+		qcom,mdss-dsi-gamma24-command = [
 		];
 		qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
 		qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
@@ -607,7 +607,7 @@
 		qcom,mdss-dsi-srgb-off-command-state = "dsi_hs_mode";
 		qcom,mdss-dsi-cabc-on-command-state = "dsi_hs_mode";
 		qcom,mdss-dsi-cabc-off-command-state = "dsi_hs_mode";
-		cm,mdss-livedisplay-preset--command-state = "dsi_hs_mode";
+		qcom,mdss-dsi-gamma-command-state = "dsi_hs_mode";
 		qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_wled";
 		qcom,mdss-dsi-reset-sequence = <1 1>, <0 5>, <1 15>;
 		qcom,mdss-dsi-tx-eot-append;
@@ -630,10 +630,5 @@
 			808302432 811656384>;
 		qcom,mdss-dsi-pan-enable-dynamic-fps;
 		qcom,mdss-dsi-pan-fps-update = "dfps_suspend_resume_mode";
-
-        	cm,mdss-livedisplay-command-state = "dsi_lp_mode";
-		cm,mdss-livedisplay-cabc-ui-value = <0x01>;
-		cm,mdss-livedisplay-cabc-image-value = <0x02>;
-		cm,mdss-livedisplay-cabc-video-value = <0x03>;
 	};
 };
