@@ -632,8 +632,8 @@
 		qcom,mdss-dsi-pan-fps-update = "dfps_suspend_resume_mode";
 
         cm,mdss-livedisplay-command-state = "dsi_lp_mode";
-		cm,mdss-livedisplay-cabc-ui-value = <0x0A>;
-		cm,mdss-livedisplay-cabc-image-value = <0x0A>;
-		cm,mdss-livedisplay-cabc-video-value = <0x0A>;
+		cm,mdss-livedisplay-cabc-ui-value = <0x01>;
+		cm,mdss-livedisplay-cabc-image-value = <0x02>;
+		cm,mdss-livedisplay-cabc-video-value = <0x03>;
 	};
 };
